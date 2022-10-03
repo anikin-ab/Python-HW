@@ -13,3 +13,5 @@ def new_list(list_num): # тоже не возвращает значение, �
     new_list1 = random.shuffle(list_num)
     return new_list1
 print(new_list(list_num)) #пишет None
+
+# all done
