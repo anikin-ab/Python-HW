@@ -4,13 +4,35 @@
 # Новое число записывается в виде остатков деления, начиная с последнего.
 
 
+# num = int(input("input num:"))
+# print(num)
+# n_bit = 0
+# newbit = ""
+# while num > 0:
+#     n_bit = str(num % 2)
+#     num = num // 2
+#     newbit = newbit + n_bit # записываем в строку остаток от деления
+# print(newbit[::-1]) #выводим реверсную строку
+
 num = int(input("input num:"))
 print(num)
 n_bit = 0
 newbit = ""
 while num > 0:
-    n_bit = str(num % 2)
+    newbit = str(num % 2) + newbit # сначала записываем последний остаток
     num = num // 2
-    newbit = newbit + n_bit # записываем в строку остаток от деления
+    # num >>=1 # побитовый сдвиг вправо
+    # newbit = newbit + n_bit # записываем в строку остаток от деления
+print(newbit) # остатки запиываются сконца до начала
 print(newbit[::-1]) #выводим реверсную строку
 
+
+# ***** решение через рекурсию
+# def tentotwo(n):
+#
+# if n == 0:
+# return ''
+# return tentotwo(n//2) + str(n % 2)
+#
+# num = int(input('Введите десятичное число '))
+# print(tentotwo(num))
