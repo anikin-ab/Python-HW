@@ -111,7 +111,7 @@ print(f" form2  = {form2}")
 sum_dev(form2)
 print(f"результат = {sum(form2)}")
 
-
+#end
 
 #### код ниже не актуалеn ####
 

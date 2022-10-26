@@ -31,3 +31,4 @@ print("повторяющиеся = ", list(list3))
 list4 = list2 + list(list3)
 print("убираем дубликаты = ", list4)
 
+#end
