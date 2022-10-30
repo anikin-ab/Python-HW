@@ -4,7 +4,7 @@ import string
 from datetime import datetime as dt
 from time import time
 
-
+#формируем нумерацию
 def id(x):
     return x
 
@@ -18,7 +18,7 @@ def s_name_gen(x):
 
 #формируем телефоны
 def tel(x):
-    a = "+7927"
+    a = "8927"
     b = random.randint(1000000, 9999999)
     full_tel = a + str(b)
     return str(full_tel)
@@ -43,18 +43,20 @@ con_spis = []
 def con_print(x):
     for i in range(0, x):
         contact_list.append([id(i), name_gen(i), s_name_gen(i), tel(i)]) # записываем контакты в словарь
+        # можно сразу при формировании списка записывать его в файл
+        # dir_export3(contact_list[i][0], contact_list[i][1], contact_list[i][2], contact_list[i][3])
         print(contact_list[i])
-    print(contact_list)
+    # print(contact_list) # напечатать весь список контактов
     return contact_list
 
 
 #second var with return
-
+# NOT USED
 def con_print2(x):
     print("#ID Name S_name #Tel")
     for i in range(0, x):
         spis = ""
-        spis += str(id(i)) + " " + name_gen(i) + " " + s_name_gen(i) + " " + tel(i)
+        spis += str(id(i)) + ";" + name_gen(i) + ";" + s_name_gen(i) + ";" + tel(i)
         con_spis.append(spis)
         print(spis)
     print(con_spis)
@@ -64,29 +66,6 @@ def con_print2(x):
         # print(spis)
 
 # print(con_print2(2))
-
-# with str
-# def con_print3(x):
-#     count = 0
-#     # global a
-#     # x = a
-#     # x = int(input("input num of contacts:"))
-#     # spis = ""
-#     for i in range(0, x):
-#         spis = ""
-#         spis1 = ""
-#         contact_list.append([i, name_gen(i), s_name_gen(i), tel(i)]) # записываем контакты в словарь
-#         print(contact_list[i])
-#         spis = name_gen(i) + " " + s_name_gen(i) + " " + tel(i)
-#         spis1 = contact_list[i]
-#         count += 1
-#         # print(spis[i])
-#         # print(spis1)
-#     # spis = "".join(contact_list)
-#     # print(spis)
-#     # print(spis1)
-#     return contact_list
-#     # print(spis)
 
 
 

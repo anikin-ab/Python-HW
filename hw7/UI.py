@@ -1,13 +1,9 @@
 #user interface
-from data_prov import con_print2
-from data_prov import name_gen
-from data_prov import s_name_gen
-from data_prov import tel
+
 import data_prov
 import oper_file
-from data_prov import con_print
-from oper_file import dir_export
-import oper_file as o_f
+from data_prov import *
+from oper_file import dir_export2
 from oper_file import dir_import
 
 
@@ -29,26 +25,11 @@ def view(start):
             con_print(size) #вызываем метод фомирования списка из data_prov размером size
 
         elif inp == "2":
-            print("importing in progress\n")
-            dir_import(1)
+            dir_import(1) # импортируем созданный список (можно сторонний)
 
         elif inp == "3":
-
-            # idx = data_prov.id(size)
-            # name = data_prov.name_gen(size)
-            # s_name_gen = data_prov.s_name_gen(size)
-            # tel = data_prov.tel(size)
-            # oper_file.dir_export3(idx, name, s_name_gen, tel)
-
-            direx = data_prov.con_print(size)
-            oper_file.dir_export(direx)
-
-            # def create_dir(size):
-            #     direx = data_prov.con_print2(size)
-            #     oper_file.dir_export(direx)
-            #     return direx
-            # create_dir(size)
-            # continue
+            direx = data_prov.con_print(size) # записываем в direx сформированный список
+            oper_file.dir_export2(direx) #инициируем фунцию экспорта от списка direx
 
         elif inp == "4":
             print("person found")
