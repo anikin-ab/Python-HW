@@ -17,14 +17,14 @@ def dir_import(x):
 
 # export form list
 def dir_export2(direx):
-    print("directory exported")
-    with open("dir_export2.csv", "a") as file:
-        # file.write("{}\n".format(direx))
+    print("exporting is in progress")
+    with open("dir_export2.csv", "w") as file: # дозапись файла
+        file.seek(0) # перезаписываем файл
         for i in range(len(direx)):
-            # file.write("{}\n".format(direx))
             # итерируем список и записываем в файл каждый элемент каждой строки
             file.write("{};{};{};{}\n".format(direx[i][0], direx[i][1], direx[i][2], direx[i][3]))
-
+    print("\ndirectory was exported")
+    file.close()
 
 # not used
 
