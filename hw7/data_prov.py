@@ -36,32 +36,38 @@ print()
 
 
 #генерируем список контактов
+# contact_list = ["ID", "Name", "S_Name", "Tel"]
 contact_list = []
-con_spis = []
+
 
 # main variant with list
 def con_print(x):
+    print("#ID Name S_name #Tel")
     for i in range(0, x):
         contact_list.append([id(i), name_gen(i), s_name_gen(i), tel(i)]) # записываем контакты в словарь
         # можно сразу при формировании списка записывать его в файл
         # dir_export3(contact_list[i][0], contact_list[i][1], contact_list[i][2], contact_list[i][3])
-        print(contact_list[i])
+        spis = ""
+        spis += str(str(contact_list[i][0]) + " " + contact_list[i][1]
+                    + " " + contact_list[i][2] + " " + contact_list[i][3])
+        print(spis) # выводим строкой
+        # print(contact_list[i]) #выводим списком
     # print(contact_list) # напечатать весь список контактов
     return contact_list
 
 
 #second var with return
 # NOT USED
-def con_print2(x):
-    print("#ID Name S_name #Tel")
-    for i in range(0, x):
-        spis = ""
-        spis += str(id(i)) + ";" + name_gen(i) + ";" + s_name_gen(i) + ";" + tel(i)
-        con_spis.append(spis)
-        print(spis)
-    print(con_spis)
-    # return spis
-    return con_spis
+# def con_print2(x):
+#     print("#ID Name S_name #Tel")
+#     for i in range(0, x):
+#         spis = ""
+#         spis += str(id(i)) + ";" + name_gen(i) + ";" + s_name_gen(i) + ";" + tel(i)
+#         con_spis.append(spis)
+#         print(spis)
+#     print(con_spis)
+#     # return spis
+#     return con_spis
         # return (id(i), name_gen(i), s_name_gen(i), tel(i)) # записываем контакты в словарь
         # print(spis)
 

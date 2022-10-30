@@ -26,15 +26,9 @@ def dir_export2(direx):
     print("\ndirectory was exported")
     file.close()
 
-# not used
+# функция поиска
 
-# def dir_export(direx):
-#     print("exporting in progress\n")
-#     file = open("dir_export.csv", "a")
-#     with file:
-#         writer = csv.writer(file)
-#         writer.writerows(direx)
-#     print("directory was exported\n")
+def search
 
 
 
