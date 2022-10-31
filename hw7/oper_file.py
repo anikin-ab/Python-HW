@@ -28,7 +28,18 @@ def dir_export2(direx):
 
 # функция поиска
 
-def search
+def search(direx2):
+    print("search by:\nID"
+          "\nName"
+          "\ns_Name"
+          "\ntel")
+    s_per = input("input parameter for search: ")
+    for i in direx2:
+        for j in i:
+            if j == s_per:
+                print(i, end=" ")
+
+
 
 
 

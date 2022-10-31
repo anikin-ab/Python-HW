@@ -44,7 +44,7 @@ contact_list = []
 def con_print(x):
     print("#ID Name S_name #Tel")
     for i in range(0, x):
-        contact_list.append([id(i), name_gen(i), s_name_gen(i), tel(i)]) # записываем контакты в словарь
+        contact_list.append([str(id(i)), name_gen(i), s_name_gen(i), tel(i)]) # записываем контакты в словарь
         # можно сразу при формировании списка записывать его в файл
         # dir_export3(contact_list[i][0], contact_list[i][1], contact_list[i][2], contact_list[i][3])
         spis = ""
@@ -55,6 +55,20 @@ def con_print(x):
     # print(contact_list) # напечатать весь список контактов
     return contact_list
 
+# убрать коммент для инициализации функции
+# con_print(int(input("input num of contacts:")))
+
+
+for i in contact_list:
+    for j in i:
+        if j == "1":
+            print(list[i])
+
+# def pr(x):
+#     a = con_print(x)
+#         for i in a:
+#     # for j in i:
+#             print(i)
 
 #second var with return
 # NOT USED

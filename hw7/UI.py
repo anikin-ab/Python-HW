@@ -28,11 +28,22 @@ def view(start):
             dir_import(1) # импортируем созданный список (можно сторонний)
 
         elif inp == "3":
+            # global direx
             direx = data_prov.con_print(size) # записываем в direx сформированный список
             oper_file.dir_export2(direx) #инициируем фунцию экспорта от списка direx
 
         elif inp == "4":
-            print("person found")
+            # print("search by:\nID"
+            #       "\nName"
+            #       "\ns_Name"
+            #       "\ntel")
+            # s_per = input()
+            # oper_file.search(direx)
+            direx2 = data_prov.con_print(size)
+            oper_file.search(direx2)
+            # oper_file.search(con_print(size))
+            # oper_file.search.con_print(size)
+            # print("person found")
 
         elif inp == "q": #при вводе q завершаем прогр
             print("Goodbye")
