@@ -7,8 +7,8 @@ import csv
 #импорт справочника
 def dir_import(x):
     print("#ID Name S_name #Tel")
-    # with open('dir_import.csv', newline='') as file: # импорт стороннего файла
-    with open('dir_export2.csv', newline='') as file: #импорт созданного файла
+    with open('dir_import.csv', newline='') as file: # импорт стороннего файла
+    # with open('dir_export2.csv', newline='') as file: #импорт созданного файла
         reader = csv.reader(file)
         for row in reader:
             row1 = ";".join(row)
@@ -18,7 +18,7 @@ def dir_import(x):
 # export form list
 def dir_export2(direx):
     print("exporting is in progress")
-    with open("dir_export2.csv", "w") as file: # дозапись файла
+    with open("dir_export2.csv", "w") as file: # запись файла
         file.seek(0) # перезаписываем файл
         for i in range(len(direx)):
             # итерируем список и записываем в файл каждый элемент каждой строки
@@ -26,19 +26,23 @@ def dir_export2(direx):
     print("\ndirectory was exported")
     file.close()
 
-# функция поиска
+# функция поиска по созданному справочнику
 
-def search(direx2):
+def search(finder):
     print("search by:\nID"
           "\nName"
           "\ns_Name"
-          "\ntel")
-    s_per = input("input parameter for search: ")
-    for i in direx2:
+          "\ntel"
+          "\nall")
+    s_per = input("\ninput parameter for search: ")
+    for i in finder:
         for j in i:
             if j == s_per:
-                print(i, end=" ")
-
+                print(i)
+    if s_per == "all":
+        for i in finder:
+            print(i)
+    else: print("\nTry again")
 
 
 
