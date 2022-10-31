@@ -5,7 +5,7 @@ import csv
 
 
 #импорт справочника
-def dir_import(x):
+def dir_import():
     print("#ID Name S_name #Tel")
     with open('dir_import.csv', newline='') as file: # импорт стороннего файла
     # with open('dir_export2.csv', newline='') as file: #импорт созданного файла
@@ -34,6 +34,7 @@ def search(finder):
           "\ns_Name"
           "\ntel"
           "\nall")
+    find_w = "ID, Name, s_Name, tel, all"
     s_per = input("\ninput parameter for search: ")
     for i in finder:
         for j in i:
@@ -42,7 +43,7 @@ def search(finder):
     if s_per == "all":
         for i in finder:
             print(i)
-    else: print("\nTry again")
+
 
 
 

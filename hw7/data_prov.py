@@ -5,9 +5,7 @@
 # использовать пустую строку (пустой символ).
 
 import random
-import string
-from datetime import datetime as dt
-from time import time
+
 
 #формируем нумерацию
 def id(x):
@@ -60,40 +58,7 @@ def con_print(x):
     # print(contact_list) # напечатать весь список контактов
     return contact_list
 
-# убрать коммент для инициализации функции
-# con_print(int(input("input num of contacts:")))
-
-
-for i in contact_list:
-    for j in i:
-        if j == "1":
-            print(list[i])
-
-# def pr(x):
-#     a = con_print(x)
-#         for i in a:
-#     # for j in i:
-#             print(i)
-
-#second var with return
-# NOT USED
-# def con_print2(x):
-#     print("#ID Name S_name #Tel")
-#     for i in range(0, x):
-#         spis = ""
-#         spis += str(id(i)) + ";" + name_gen(i) + ";" + s_name_gen(i) + ";" + tel(i)
-#         con_spis.append(spis)
-#         print(spis)
-#     print(con_spis)
-#     # return spis
-#     return con_spis
-        # return (id(i), name_gen(i), s_name_gen(i), tel(i)) # записываем контакты в словарь
-        # print(spis)
-
-# print(con_print2(2))
-
-
-
 # ДЛЯ ЛОКАЛЬНОй генерации списка отмени коммент
 # con_print(int(input("input num of contacts:")))
-# con_print2(int(input("input num of contacts:")))
+
+

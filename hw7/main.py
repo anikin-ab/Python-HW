@@ -12,5 +12,8 @@
 # В качестве формата файла можно использовать форматы csv, json, xml
 
 
-import UI
 
+from controller import *
+
+if __name__ == "__main__":
+    con() #запускаем контроллер
