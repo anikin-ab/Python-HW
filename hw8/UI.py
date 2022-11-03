@@ -12,7 +12,7 @@ import controller
 fwi4 = 0
 
 # функция отображения задач
-def view(start):
+def view():
     while True:
         print("\npress q to quit")
         print("1: create directory" #предлагаем выбрать действие
@@ -41,10 +41,11 @@ def view(start):
             oper_file.dir_export2(direx) #инициируем фунцию экспорта от списка direx
 
         elif inp == "4":
-            print("fwi4", fwi4)
+            # print("fwi4", fwi4)
+
             if fwi4 == 1:
-                finder = oper_file.import_file
-                oper_file.search(finder)
+                finder1 = oper_file.import_file
+                oper_file.search2(finder1)  #поиск в имопртированном файле
             else:
                 finder = data_prov.con_print(size) # записываем в direx2 сформированный список
                 oper_file.search(finder) #инициируем фунцию поиска в списке direx2

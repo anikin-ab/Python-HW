@@ -7,8 +7,9 @@ import UI
 
 def con():
     print("Hello, press S to continue")
-    if input() == "s":
-        UI.view("s") #вызываем функцию отображения выбора
+    start = input()
+    if start == "s" or start == "S":
+        UI.view() #вызываем функцию отображения выбора
 
 def import_f():
     UI.dir_import(0)  # импортируем созданный список (можно сторонний)

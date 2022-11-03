@@ -6,8 +6,10 @@ import os.path
 
 
 
-fwi4 = 0
 
+fwi4 = 0
+f_name = ""
+f_namei = ""
 import_file = []
 
 # импорт справочника
@@ -17,33 +19,34 @@ def dir_import(fwi):
     fwi4 = fwi
     print("1 import", fwi4)
     global import_file
-    row2 = []
-
-    f_name = (input("Write filename to open:"))  # вводим название файла, который надо экспортировать
-    check_file = os.path.exists(f_name)  # проверяем, существует ли такой файл
+    global f_namei
+    import_file = []  # обноваляем список
+    f_namei = (input("Write filename to open:"))  # вводим название файла, который надо экспортировать
+    check_file = os.path.exists(f_namei)  # проверяем, существует ли такой файл
     if check_file:
         print("#ID Name S_name #Tel")
-        with open(f_name, newline='', encoding="utf-8") as file:  # импорт Указанного файла
+        with open(f_namei, newline='', encoding="utf-8") as file:  # импорт Указанного файла
             reader = csv.reader(file)
             for row in reader:
                 row1 = ";".join(row)
                 print(row1.replace(";", " "))
                 row2 = row1.split(";")  #каждый элмент ряда записываем отдельно в список
                 import_file.append(row2)  #сохраняем импортированный файл в список
-        print(f" \nфайл записан в список {import_file}")
+        # print(f" \nфайл записан в список {import_file}")  #показываем созданный список целиком
 
-        fwi4 = 1
+        fwi4 = 1  # для поиска в импортированном файле
         if fwi4 == 1:
             print("\ndirectory was imported")
         # file.close()
 
     else:
-        print("\nNo such file")
+        print("\nNo such file")  #если файл не найден
     return fwi4
 
 
 # export form list
 def dir_export2(direx):
+    global f_name
     f_name = (input("Write filename to save it:"))  # вводим название файла для сохран
     print("exporting is in progress")
     with open(f_name, "w", encoding="utf-8") as file:  # запись файла
@@ -52,36 +55,43 @@ def dir_export2(direx):
             #  итерируем список и записываем в файл каждый элемент каждой строки
             file.write("{};{};{};{}\n".format(direx[i][0], direx[i][1], direx[i][2], direx[i][3]))
     print("\ndirectory was exported")
-    file.close()
+    # file.close()
 
 # функция поиска по созданному справочнику
 def search(finder):
-    global fwi4
-    if fwi4 == 0:
-        print(f"Searching in created file", fwi4)
-    else: print("Searching in imported file", fwi4)
-    print("search by:\nID"
-          "\nName"
-          "\ns_Name"
-          "\ntel"
-          "\nall")
+    # print("for searching in newfile - export file then import it\n"
+    #       "for searching in imported file - import file")
+    print(f"\nSearching in CREATED file {f_name}", fwi4)
+    print("search by: ID Name s_Name tel all")
     s_per = input("\ninput parameter for search: ")
     print("\n#ID Name S_name #Tel")
-
-    # for i in finder:
-    #     if i == s_per:
-    #         print(i)
-
     for i in finder:
         for j in i:
             if j == s_per:
                 print(i)
                 break
-
     if s_per == "all":
         for i in finder:
             print(i)
 
+
+# функция поиска по импортированному справочнику
+def search2(finder1):
+    # print("for searching in newfile - export file\n"
+    #           "for searching in imported file - import file")
+    print(f"\nSearching in IMPORTED file {f_namei}", fwi4)
+
+    print("search by: ID Name s_Name tel all")
+    s_per = input("\ninput parameter for search: ")
+    print("\n#ID Name S_name #Tel")
+    for i in finder1:
+        for j in i:
+            if j == s_per:
+                print(i)
+                break
+    if s_per == "all":
+        for i in finder1:
+            print(i)
 
 
 
