@@ -53,9 +53,9 @@ def con_print(x):
         spis = ""
         spis += str(str(contact_list[i][0]) + " " + contact_list[i][1]
                     + " " + contact_list[i][2] + " " + contact_list[i][3])
-        print(spis) # выводим строкой
-        # print(contact_list[i]) #выводим списком
-    # print(contact_list) # напечатать весь список контактов
+        print(spis)  # выводим строкой
+        # print(contact_list[i])  #выводим списком
+    print(contact_list)  # напечатать весь список контактов
     return contact_list
 
 # ДЛЯ ЛОКАЛЬНОй генерации списка отмени коммент

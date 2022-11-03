@@ -2,14 +2,14 @@
 
 import data_prov
 import oper_file
-from oper_file import *
+# from oper_file import *
 from data_prov import *
 # from oper_file import dir_export2
 # from oper_file import dir_import
 # from oper_file import search
 import controller
 
-
+fwi4 = 0
 
 # функция отображения задач
 def view(start):
@@ -20,9 +20,9 @@ def view(start):
               " \n3: export directory"
               " \n4: find person")
         print()
-        size = 0
         global fwi4
-        fwi4 = 0
+
+        size = 0
         inp = input()
         if inp == "1":
             print("Input directory size:")
@@ -30,18 +30,18 @@ def view(start):
             con_print(size) #вызываем метод фомирования списка из data_prov размером size
 
         elif inp == "2":
-            print("2", fwi)
+            fwi4 = 0
+            print("2", fwi4)
             # dir_import(1) # импортируем созданный список (можно сторонний)
-            controller.import_f() # импортируем  список (можно сторонний), но не сохраняем
+            # controller.import_f() # импортируем  список (можно сторонний), но не сохраняем
 
-            fwi4 = oper_file.dir_import()
+            fwi4 = oper_file.dir_import(0)
         elif inp == "3":
             direx = data_prov.con_print(size) # записываем в direx сформированный список
             oper_file.dir_export2(direx) #инициируем фунцию экспорта от списка direx
 
         elif inp == "4":
-            print("fwi", fwi)
-            print("fwi4", fwi)
+            print("fwi4", fwi4)
             if fwi4 == 1:
                 finder = oper_file.import_file
                 oper_file.search(finder)
