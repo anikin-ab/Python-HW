@@ -1,15 +1,12 @@
 #user interface
 
-import data_prov
-import oper_file
-# from oper_file import *
-from data_prov import *
-# from oper_file import dir_export2
-# from oper_file import dir_import
-# from oper_file import *
-import controller
 
-fwi4 = 0
+import oper_file
+from oper_file import *
+from data_prov import *
+import controller
+from oper_file import dir_export3
+
 
 # функция отображения задач
 def view():
@@ -33,16 +30,23 @@ def view():
             controller.import_f() # импортируем  список (можно сторонний), но не сохраняем
 
         elif inp == "3":
-            direx = data_prov.con_print(size) # записываем в direx сформированный список
-            oper_file.dir_export2(direx) #инициируем фунцию экспорта от списка direx
+            print("print 'new' to import created file \n"
+                  "print 'imp' to import imported file")
+            wfi = input() #какой файл импортировать?
+            if wfi == "new":
+                direx = data_prov.con_print(size) # записываем в direx сформированный список
+                oper_file.dir_export2(direx) #инициируем фунцию экспорта от списка direx
+            elif wfi == "imp":
+                direx = oper_file.import_file  # записываем в direx сформированный список
+                oper_file.dir_export2(direx)
 
         elif inp == "4":
             print("print 'new' to search in created file \n"
                   "print 'imp' to search in imported file")
             f_sear = input()
             if f_sear == "imp":
-                finder = oper_file.import_file
-                oper_file.search(finder)  #поиск в имопртированном файле
+                finder1 = oper_file.import_file
+                oper_file.search2(finder1)  #поиск в имопртированном файле
             elif f_sear == "new":
                 finder = data_prov.con_print(size) # записываем в direx сформированный список
                 oper_file.search(finder) #инициируем фунцию поиска в списке direx
@@ -52,18 +56,29 @@ def view():
             print("print 'new' to change created file \n"
                   "print 'imp' to change imported file")
             chang = input()
+            # выбираем файл для работы
             if chang == "new":
-                print("print 'new' to change created file \n"
-                      "print 'imp' to change imported file")
-                adder = data_prov.con_print(size)  # добавляем инфу в файл
-                adding(adder)
-                print("adder1")
-            if chang == "imp":
-                adder = oper_file.import_file #добавляем инфу в файл
-                adding(adder)
-                print("adder2")
+                print("print 'add' to add info\n"
+                      "print 'del' to delete info")
+                add = input() # выбираем файл для работы
+                if add == "add": # доб инфо
+                    adder = data_prov.con_print(size)  # добавляем инфу в файл
+                    adding(adder)
+                if add == "del": # удалить инфо
+                    deller = data_prov.con_print(size)
+                    deleter(deller)
 
-        # elif inp == "6":
+            if chang == "imp":
+                print("print 'add' to add info\n"
+                      "print 'del' to delete info")
+                add1 = input()  # выбираем файл для работы
+                if add1 == "add": # доб инфо
+                    adder = oper_file.import_file  # добавляем инфу в файл
+                    adding1(adder)
+                if add1 == "del": # удалить инфо
+                    deller = oper_file.import_file
+                    deleter2(deller)
+
 
         elif inp == "q": #при вводе q завершаем прогр
             print("Goodbye")

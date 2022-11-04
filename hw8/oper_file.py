@@ -4,6 +4,8 @@
 
 import csv
 import os.path # для поиска файла
+import data_prov
+from data_prov import *
 
 
 
@@ -50,10 +52,17 @@ def dir_export2(direx):
     print("\ndirectory was exported")
     # file.close()
 
+# export one after another
+
+def dir_export3(idx, name, s_name_gen, tel):
+    with open("dir_export3.csv", "a") as file:
+        file.write("{};{};{};{}\n".format(idx, name, s_name_gen, tel))
+
+
 # функция поиска по справочнику
 def search(finder):
-    print(f"\nSearching in CREATED file {f_name}")
-    print("search by: № Имя Фамилия Телефон")
+    print(f"\nSearching in CREATED file: {f_name} ")
+    print("search by: № Имя Фамилия Телефон all")
     s_per = input("\ninput parameter for search: ")
     for i in finder:
         for j in i:
@@ -67,10 +76,9 @@ def search(finder):
 
 # функция поиска по импортированному справочнику
 def search2(finder1):
-    print(f"\nSearching in IMPORTED file {f_namei}")
-    print("search by: № Имя Фамилия Телефон")
+    print(f"\nSearching in IMPORTED file: {f_namei}")
+    print("search by: № Имя Фамилия Телефон all")
     s_per = input("\ninput parameter for search: ")
-    # print("\n#ID Name S_name #Tel")
     for i in finder1:
         for j in i:
             if j == s_per:
@@ -82,14 +90,10 @@ def search2(finder1):
 
 
 
-# export one after another
 
-def dir_export3(idx, name, s_name_gen, tel):
-    with open("dir_export3.csv", "a") as file:
-        file.write("{};{};{};{}\n".format(idx, name, s_name_gen, tel))
-
+# млодуль добавления инфы
 def adding(adder):
-    adder1 = adder
+    adder1 = adder # новый список
     while True:
         print("\nДобавь: # Имя Фамилию Телефон (через пробел)")
         new_data = [list(map(str, input().split()))]
@@ -97,8 +101,75 @@ def adding(adder):
         for i in adder1:
             print(i)
         if input("stop? y/n: ") == "y":
+            data_prov.contact_list = adder1 #записываем в созданный файл новую инфу
+            # dir_export2(adder1) # можно сразу экспортировать
             break
-        else: continue
+        else:
+            continue
 
+# млодуль добавления инфы В импортир файл
+def adding1(adder):
+    adder1 = adder # новый список
+    global import_file
+    while True:
+        print("\nДобавь: # Имя Фамилию Телефон (через пробел)")
+        new_data = [list(map(str, input().split()))]
+        adder1 = adder1 + new_data
+        for i in adder1:
+            print(i)
+        if input("stop? y/n: ") == "y":
+            import_file = adder1 #записываем в созданный файл новую инфу
+            # dir_export2(adder1) # можно сразу экспортировать
+            break
+        else:
+            continue
 
+# модуль удаления инфы созд списка
+def deleter(deller):
+    print(f"\n WARNING: Info will be deleted")
+    print("search by: № Имя Фамилия Телефон all")
+    dell = deller  # новый список
+    global import_file
+    while True:
+        s_per = input("\ninput parameter for search to delete: ")
+        for i in dell:
+            for j in i:
+                if j == s_per:
+                    dell.pop(dell.index(i))
+                    print(dell)
+                    break
+        if s_per == "all":
+            dell.clear()
+            print(dell)
+        if input("stop? y/n: ") == "y":
+            data_prov.contact_list = dell #записываем в созданный файл новую инфу
+            # dir_export2(adder1) # можно сразу экспортировать
+            break
+        else:
+            continue
+    print("Info was deleted")
+
+def deleter2(deller):
+    print(f"\n WARNING: Info will be deleted")
+    print("search by: № Имя Фамилия Телефон all")
+    dell = deller  # новый список
+    global import_file
+    while True:
+        s_per = input("\ninput parameter for search to delete: ")
+        for i in dell:
+            for j in i:
+                if j == s_per:
+                    dell.pop(dell.index(i))
+                    print(dell)
+                    break
+        if s_per == "all":
+            dell.clear()
+            print(dell)
+        if input("stop? y/n: ") == "y":
+            import_file = dell #записываем в созданный файл новую инфу
+            # dir_export2(adder1) # можно сразу экспортировать
+            break
+        else:
+            continue
+    print("Info was deleted")
 
