@@ -81,8 +81,22 @@ def view():
 
 
         elif inp == "q": #при вводе q завершаем прогр
-            print("Goodbye")
-            break
+            if input("save directory? y/n: ") == "y": # если надо сохраняем
+                print("print 'new' to import created file \n"
+                      "print 'imp' to import imported file")
+                wfi = input()  # какой файл импортировать?
+                if wfi == "new":
+                    direx = data_prov.con_print(size)  # записываем в direx сформированный список
+                    oper_file.dir_export2(direx)  # инициируем фунцию экспорта от списка direx
+                elif wfi == "imp":
+                    direx = oper_file.import_file  # записываем в direx сформированный список
+                    oper_file.dir_export2(direx)
+
+                break
+            else:
+
+                print("Goodbye")
+                break
 
         else: print("Try again")
 
