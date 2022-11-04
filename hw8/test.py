@@ -23,9 +23,11 @@ def deleter(deller):
             if j == s_per:
                 deller.pop(deller.index(i))
                 break
+    for i in deller:
+        print(deller)
     if s_per == "all":
         deller.clear()
-    print(deller)
+    # print(deller)
     print("Info was deleted")
 
 # deleter(adder1)
@@ -42,9 +44,14 @@ def deleter2(deller):
                 if j == s_per:
                     dell.pop(dell.index(i))
                     break
+            # print(i)
+        # for l in dell:
+        #     print(l)
         if s_per == "all":
             dell.clear()
-        print(dell)
+            print(dell)
+        for l in dell:
+            print(l)
         if input("stop? y/n: ") == "y":
             import_file = adder1 #
             # dir_export2(adder1)

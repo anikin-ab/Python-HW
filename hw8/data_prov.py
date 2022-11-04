@@ -33,7 +33,7 @@ def age(x):
     return str(a)
 
 def jobs(x):
-    return random.choise(job)
+    return random.choice(job)
 
 def specs(x):
     return random.choice(spec)
@@ -68,23 +68,24 @@ def con_print(x):
     for i in range(0, x):
         # contact_list.append([str(id(i)), name_gen(i), s_name_gen(i), tel(i)]) # записываем контакты в список
         contact_list.append([str(id(i + 1)), name_gen(i + 1), s_name_gen(i + 1),
-                             age[i + 1], jobs(i + 1), specs(i + 1), tel(i + 1)])  # записываем контакты в список
+                                 age(i + 1), jobs(i + 1), specs(i + 1), tel(i + 1)])  # записываем контакты в список
         # можно сразу при формировании списка записывать его в файл
-        for j in range(0, len(contact_list)):
-            oper_file.dir_export3(contact_list[i + 1][j], contact_list[i + 1][j], contact_list[i + 1][j],
-                              contact_list[i + 1][j], contact_list[i + 1][j], contact_list[i + 1][j],
-                                  contact_list[i + 1][j])
-            spis = ""
-            spis += str(str(contact_list[i][0]) + " " + contact_list[i][1]
-                    + " " + contact_list[i][2] + " " + contact_list[i][3])
+        oper_file.dir_export3(contact_list[i + 1][0], contact_list[i + 1][1], contact_list[i + 1][2],
+                              contact_list[i + 1][3], contact_list[i + 1][4], contact_list[i + 1][5],
+                                  contact_list[i + 1][6])
+        spis = ""
+        spis += str(str(contact_list[i][0]) + " " + contact_list[i][1]
+                + " " + contact_list[i][2] + " " + contact_list[i][3] + " " +
+                     contact_list[i][4] + " " + contact_list[i][5] + " " + contact_list[i][6])
         print(spis) # выводим строкой
         if count == x - 1:
             spis = ""
             spis += str(str(contact_list[i + 1][0]) + " " + contact_list[i + 1][1]
-                        + " " + contact_list[i + 1][2] + " " + contact_list[i + 1][3])
+                + " " + contact_list[i + 1][2] + " " + contact_list[i + 1][3] + " " +
+                     contact_list[i + 1][4] + " " + contact_list[i + 1][5] + " " + contact_list[i + 1][6])
             print(spis) #выводим последний элемент
 
-        print(spis)  # выводим строкой
+        # print(spis)  # выводим строкой
         count += 1
         # print(contact_list[i])  #выводим списком
     # print(contact_list)  # напечатать весь список контактов
