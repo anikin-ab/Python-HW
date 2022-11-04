@@ -1,3 +1,5 @@
+# file for testing
+
 adder = [["jff", 'fdf', "fdf", "fdff"]]
 print(adder)
 adder1 = adder
@@ -61,3 +63,5 @@ def deleter2(deller):
     print("Info was deleted")
 
 deleter2(adder1)
+
+# end

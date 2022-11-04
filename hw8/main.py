@@ -12,3 +12,5 @@ from controller import *
 
 if __name__ == "__main__":
     con() #запускаем контроллер
+
+# end

@@ -94,4 +94,5 @@ def con_print(x):
 # ДЛЯ ЛОКАЛЬНОй генерации списка отмени коммент
 # con_print(int(input("input num of contacts:")))
 
+# end
 

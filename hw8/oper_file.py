@@ -177,3 +177,4 @@ def deleter2(deller):
             continue
     print("Info was deleted")
 
+# end
