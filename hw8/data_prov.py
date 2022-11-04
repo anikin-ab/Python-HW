@@ -5,6 +5,7 @@
 # использовать пустую строку (пустой символ).
 
 import random
+from oper_file import *
 
 
 #формируем нумерацию
@@ -39,21 +40,28 @@ print()
 
 
 #генерируем список контактов
-# contact_list = ["ID", "Name", "S_Name", "Tel"]
-contact_list = []
+contact_list = [["№", "Имя", "Фамилия", "Телефон"]]  #пишем названия столбцов
+# contact_list = []
 
 
 # main variant with list
 def con_print(x):
-
+    count = 0
     for i in range(0, x):
-        contact_list.append([str(id(i)), name_gen(i), s_name_gen(i), tel(i)]) # записываем контакты в словарь
+        # contact_list.append([str(id(i)), name_gen(i), s_name_gen(i), tel(i)]) # записываем контакты в список
+        contact_list.append([str(id(i + 1)), name_gen(i + 1), s_name_gen(i + 1), tel(i + 1)])  # записываем контакты в список
         # можно сразу при формировании списка записывать его в файл
-        # dir_export3(contact_list[i][0], contact_list[i][1], contact_list[i][2], contact_list[i][3])
+        dir_export3(contact_list[i + 1][0], contact_list[i + 1][1], contact_list[i + 1][2], contact_list[i + 1][3])
         spis = ""
         spis += str(str(contact_list[i][0]) + " " + contact_list[i][1]
                     + " " + contact_list[i][2] + " " + contact_list[i][3])
-        print(spis)  # выводим строкой
+        print(spis) # выводим строкой
+        if count == x - 1:
+            spis = ""
+            spis += str(str(contact_list[i + 1][0]) + " " + contact_list[i + 1][1]
+                        + " " + contact_list[i + 1][2] + " " + contact_list[i + 1][3])
+            print(spis) #выводим последний элемент
+        count += 1
         # print(contact_list[i])  #выводим списком
     # print(contact_list)  # напечатать весь список контактов
     return contact_list

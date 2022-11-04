@@ -18,7 +18,8 @@ def view():
         print("1: create directory" #предлагаем выбрать действие
               " \n2: import directory"
               " \n3: export directory"
-              " \n4: find person")
+              " \n4: find person"
+              " \n5: change directory")
         print()
         global fwi4
 
@@ -30,25 +31,24 @@ def view():
             con_print(size) #вызываем метод фомирования списка из data_prov размером size
 
         elif inp == "2":
-            fwi4 = 0
-            print("2", fwi4)
+            # fwi4 = 0
+            # print("2", fwi4) # проверка, меняется ли fwi4
             # dir_import(1) # импортируем созданный список (можно сторонний)
             # controller.import_f() # импортируем  список (можно сторонний), но не сохраняем
-
             fwi4 = oper_file.dir_import(0)
         elif inp == "3":
             direx = data_prov.con_print(size) # записываем в direx сформированный список
             oper_file.dir_export2(direx) #инициируем фунцию экспорта от списка direx
 
         elif inp == "4":
-            # print("fwi4", fwi4)
+            # print("fwi4", fwi4) # проверка, меняется ли fwi4
 
             if fwi4 == 1:
                 finder1 = oper_file.import_file
                 oper_file.search2(finder1)  #поиск в имопртированном файле
             else:
-                finder = data_prov.con_print(size) # записываем в direx2 сформированный список
-                oper_file.search(finder) #инициируем фунцию поиска в списке direx2
+                finder = data_prov.con_print(size) # записываем в direx сформированный список
+                oper_file.search(finder) #инициируем фунцию поиска в списке direx
             #для работы со сторонним списком его надо сохранить
 
         elif inp == "q": #при вводе q завершаем прогр
@@ -57,6 +57,7 @@ def view():
 
         else: print("Try again")
 
+# ***для локального вызова функции***
 # print("Hello, press S to continue")
 # if input() == "s":
 #     view("s") #вызываем функцию отображения выбора

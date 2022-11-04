@@ -24,8 +24,9 @@ def dir_import(fwi):
     f_namei = (input("Write filename to open:"))  # вводим название файла, который надо экспортировать
     check_file = os.path.exists(f_namei)  # проверяем, существует ли такой файл
     if check_file:
-        print("#ID Name S_name #Tel")
-        with open(f_namei, newline='', encoding="utf-8") as file:  # импорт Указанного файла
+        # print("#ID Name S_name #Tel")
+        # with open(f_namei, newline='', encoding="utf-8") as file:  # импорт Указанного файла
+        with open(f_namei, newline='', encoding='cp1251') as file:
             reader = csv.reader(file)
             for row in reader:
                 row1 = ";".join(row)
@@ -49,7 +50,7 @@ def dir_export2(direx):
     global f_name
     f_name = (input("Write filename to save it:"))  # вводим название файла для сохран
     print("exporting is in progress")
-    with open(f_name, "w", encoding="utf-8") as file:  # запись файла
+    with open(f_name, "w") as file:  # запись файла # убрал encoding="utf-8"
         file.seek(0)  # перезаписываем файл
         for i in range(len(direx)):
             #  итерируем список и записываем в файл каждый элемент каждой строки
@@ -62,9 +63,9 @@ def search(finder):
     # print("for searching in newfile - export file then import it\n"
     #       "for searching in imported file - import file")
     print(f"\nSearching in CREATED file {f_name}", fwi4)
-    print("search by: ID Name s_Name tel all")
+    print("search by: № Имя Фамилия Телефон")
     s_per = input("\ninput parameter for search: ")
-    print("\n#ID Name S_name #Tel")
+    # print("\n#ID Name S_name #Tel")
     for i in finder:
         for j in i:
             if j == s_per:
@@ -81,9 +82,9 @@ def search2(finder1):
     #           "for searching in imported file - import file")
     print(f"\nSearching in IMPORTED file {f_namei}", fwi4)
 
-    print("search by: ID Name s_Name tel all")
+    print("search by: № Имя Фамилия Телефон")
     s_per = input("\ninput parameter for search: ")
-    print("\n#ID Name S_name #Tel")
+    # print("\n#ID Name S_name #Tel")
     for i in finder1:
         for j in i:
             if j == s_per:
@@ -102,3 +103,5 @@ def dir_export3(idx, name, s_name_gen, tel):
     # print("directory exported")
     with open("dir_export3.csv", "a") as file:
         file.write("{};{};{};{}\n".format(idx, name, s_name_gen, tel))
+
+
