@@ -21,7 +21,6 @@ def view():
               " \n4: find person"
               " \n5: change directory")
         print()
-        global fwi4
 
         size = 0
         inp = input()
@@ -42,8 +41,8 @@ def view():
                   "print 'imp' to search in imported file")
             f_sear = input()
             if f_sear == "imp":
-                finder1 = oper_file.import_file
-                oper_file.search2(finder1)  #поиск в имопртированном файле
+                finder = oper_file.import_file
+                oper_file.search(finder)  #поиск в имопртированном файле
             elif f_sear == "new":
                 finder = data_prov.con_print(size) # записываем в direx сформированный список
                 oper_file.search(finder) #инициируем фунцию поиска в списке direx
@@ -54,6 +53,8 @@ def view():
                   "print 'imp' to change imported file")
             chang = input()
             if chang == "new":
+                print("print 'new' to change created file \n"
+                      "print 'imp' to change imported file")
                 adder = data_prov.con_print(size)  # добавляем инфу в файл
                 adding(adder)
                 print("adder1")
