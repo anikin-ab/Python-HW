@@ -1,3 +1,2 @@
-contact_list = [["ID", "Name", "S_Name", "Tel"]]
-
-print(contact_list)
+print("print 'new' to change created file \n"
+                              "print 'imp' to change imported file")

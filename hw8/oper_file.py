@@ -14,7 +14,7 @@ import_file = []
 
 # импорт справочника
 
-def dir_import(fwi):
+def dir_import():
     global fwi4
     fwi4 = fwi
     print("1 import", fwi4)
@@ -103,5 +103,9 @@ def dir_export3(idx, name, s_name_gen, tel):
     # print("directory exported")
     with open("dir_export3.csv", "a") as file:
         file.write("{};{};{};{}\n".format(idx, name, s_name_gen, tel))
+
+def adding(adder):
+    for i in adder:
+        print(i)
 
 

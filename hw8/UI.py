@@ -6,7 +6,7 @@ import oper_file
 from data_prov import *
 # from oper_file import dir_export2
 # from oper_file import dir_import
-# from oper_file import search
+# from oper_file import *
 import controller
 
 fwi4 = 0
@@ -31,25 +31,38 @@ def view():
             con_print(size) #вызываем метод фомирования списка из data_prov размером size
 
         elif inp == "2":
-            # fwi4 = 0
-            # print("2", fwi4) # проверка, меняется ли fwi4
-            # dir_import(1) # импортируем созданный список (можно сторонний)
-            # controller.import_f() # импортируем  список (можно сторонний), но не сохраняем
-            fwi4 = oper_file.dir_import(0)
+            controller.import_f() # импортируем  список (можно сторонний), но не сохраняем
+
         elif inp == "3":
             direx = data_prov.con_print(size) # записываем в direx сформированный список
             oper_file.dir_export2(direx) #инициируем фунцию экспорта от списка direx
 
         elif inp == "4":
-            # print("fwi4", fwi4) # проверка, меняется ли fwi4
-
-            if fwi4 == 1:
+            print("print 'new' to search in created file \n"
+                  "print 'imp' to search in imported file")
+            f_sear = input()
+            if f_sear == "imp":
                 finder1 = oper_file.import_file
                 oper_file.search2(finder1)  #поиск в имопртированном файле
-            else:
+            elif f_sear == "new":
                 finder = data_prov.con_print(size) # записываем в direx сформированный список
                 oper_file.search(finder) #инициируем фунцию поиска в списке direx
             #для работы со сторонним списком его надо сохранить
+
+        elif inp == "5":
+            print("print 'new' to change created file \n"
+                  "print 'imp' to change imported file")
+            chang = input()
+            if chang == "new":
+                adder = data_prov.con_print(size)  # добавляем инфу в файл
+                adding(adder)
+                print("adder1")
+            if chang == "imp":
+                adder = oper_file.import_file #добавляем инфу в файл
+                adding(adder)
+                print("adder2")
+
+        # elif inp == "6":
 
         elif inp == "q": #при вводе q завершаем прогр
             print("Goodbye")
