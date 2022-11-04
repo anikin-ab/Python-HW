@@ -53,10 +53,10 @@ def dir_export2(direx):
     print("\ndirectory was exported")
     # file.close()
 
-# export one after another
+# автосохранение созданного списка
 
 def dir_export3(idx, name, s_name_gen, age, job, spec, tel):
-    with open("dir_export3.csv", "a") as file:
+    with open("autosave.csv", "a") as file:
         file.write("{};{};{};{};{};{};{}\n".format(idx, name, s_name_gen, age, job, spec, tel))
 
 
