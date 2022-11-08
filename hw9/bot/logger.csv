@@ -1,30 +1,4 @@
-  Aleksey; 790537627; /hello
- Aleksey; 790537627; /time
- Aleksey; 790537627; /sum 2 4
-Aleksey; 790537627; /hello
-Aleksey; 790537627; /time
-Grigorii; 447280581; /hello
-Grigorii; 447280581; /time
-Grigorii; 447280581; /sum 5 3
-Grigorii; 447280581; /sum 100 1
-Aleksey; 790537627; /hello
-Aleksey; 790537627; /hello
-Aleksey; 790537627; /see
-Aleksey; 790537627; /hello
-Aleksey; 790537627; /hello
-Aleksey; 790537627; /help
-Aleksey; 790537627; /hello
-Aleksey; 790537627; /help
-Aleksey; 790537627; /hello
-Aleksey; 790537627; /time
-Оксана; 740487476; /start
-Amir; 193510312; /start
-Оксана; 740487476; /hello
-Оксана; 740487476; /time
-Amir; 193510312; /hello
-Amir; 193510312; /time
 Aleksey; 790537627; /start
-Aleksey; 790537627; /hello
-Оксана; 740487476; /start
-Оксана; 740487476; /hello
-Оксана; 740487476; /time
+Aleksey; 790537627; /math
+Aleksey; 790537627; /sum 2 4
+Aleksey; 790537627; /mult 2 5
