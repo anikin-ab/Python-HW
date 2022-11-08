@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
 from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler
+from telegram.ext import MessageHandler, filters
+
 from UI import *
 from loging import *
 
-# global app
+
 def bot_start(application):
     global app
     app = application
@@ -17,22 +20,8 @@ def bot_start(application):
     app.add_handler(CommandHandler("sub", sub_com))
     app.add_handler(CommandHandler("mult", mult_com))
     app.add_handler(CommandHandler("div", div_com))
+    # app.add_handler(CommandHandler("sum2", echo))
+    app.add_handler(MessageHandler(filters.TEXT, echo))
+
+
     # app.run_polling()
-
-# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     await context.bot.send_message(chat_id=update.effective_chat.id,
-#                                    text="I'm a bot, print /help")
-
-
-# application.add_handler(CommandHandler("hello", hello_com))
-
-# app.add_handler(CommandHandler("hello", hello_com))
-# app.add_handler(CommandHandler("time", time_com))
-# app.add_handler(CommandHandler("sum", sum_com))
-# app.add_handler(CommandHandler("start", help))
-# app.add_handler(CommandHandler("weather", weth))
-
-# application.run_polling()
-# app.run_polling()
-
-# print("end")

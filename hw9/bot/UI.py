@@ -22,10 +22,40 @@ async def weth(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def math(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await log_com(update, context)  # вызываем функц log и туда запис два объекта
-    await update.message.reply_text(f"I can calculate for you:\n/sum \n/sub \n/mult \n/div")
+    await update.message.reply_text(f"I can calculate for you:\n/sum \n/sum2 \n/sub \n/mult \n/div")
+
+
+
+# async def echo(update):
+#     """Echo the user message."""
+#     update.message.reply_text(sum_com(update.message.text))
+
+async def echo(update):
+    """Echo the user message."""
+    update.message.reply_text(update(update.message.text))
+
+# summarising EVAL
+async def sum_com(numb):
+    print("numb")
+
+    num = numb
+    sum = eval(num) #/sum x y
+    await numb.message.reply_text(f'вот, я сложил: {sum}')
+
+
+# summarising EVAL
+# async def sum_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
+#     await log_com(update, context)# вызываем функц log и туда запис два объекта
+#     msg = update.message.text
+#     print(msg)
+#     num = eval(msg.split("/sum")[-1]) #/sum x y
+#     # x = float(num[1])
+#     # y = float(num[2])
+#     # z = x + y
+#     await update.message.reply_text(f'вот, я сложил: {msg} = {num}')
 
 # summarising
-async def sum_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def sum_com2(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await log_com(update, context)# вызываем функц log и туда запис два объекта
     msg = update.message.text
     print(msg)

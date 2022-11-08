@@ -15,7 +15,7 @@ logging.basicConfig(
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="I'm a bot, please talk to me!")
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Ok, print: /start")
 
 #  считываем токен из файла
 token = ""
@@ -37,6 +37,6 @@ if __name__ == '__main__':
     start_handler = CommandHandler('start', start)
     application.add_handler(start_handler)
 
-    application.run_polling()
-
+    application.run_polling()  # starts bot
+    # application.idle()
     print("end")
