@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from ui import *
+from userinterface import *
 from loging import *
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 
