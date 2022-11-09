@@ -1,38 +1,41 @@
+# -*- coding: utf-8 -*-
+from telegram import Update
+from telegram.ext import  ContextTypes
 from loging import *
 import datetime
 
 
 async def hello_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await log_com(update, context)  # вызываем функц log и туда запис два объекта
-    await update.message.reply_text(f'Привет, {update.effective_user.first_name}')
+    await log_com(update, context)  # РІС‹Р·С‹РІР°РµРј С„СѓРЅРєС† log Рё С‚СѓРґР° Р·Р°РїРёСЃ РґРІР° РѕР±СЉРµРєС‚Р°
+    await update.message.reply_text(f'РџСЂРёРІРµС‚, {update.effective_user.first_name}')
 
 
 async def time_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await log_com(update, context)  # вызываем функц log и туда запис два объекта
-    await update.message.reply_text(f'Время уже - {datetime.datetime.now().time()}')
+    await log_com(update, context)  # РІС‹Р·С‹РІР°РµРј С„СѓРЅРєС† log Рё С‚СѓРґР° Р·Р°РїРёСЃ РґРІР° РѕР±СЉРµРєС‚Р°
+    await update.message.reply_text(f'Р’СЂРµРјСЏ СѓР¶Рµ - {datetime.datetime.now().time()}')
 
 
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await log_com(update, context)  # вызываем функц log и туда запис два объекта
+    await log_com(update, context)  # РІС‹Р·С‹РІР°РµРј С„СѓРЅРєС† log Рё С‚СѓРґР° Р·Р°РїРёСЃ РґРІР° РѕР±СЉРµРєС‚Р°
     await update.message.reply_text(f"print commands:\n/hello \n/time \n/weather \n/math")
 
 
 async def weth(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(f'посмотри погоду тут https://www.gismeteo.ru/weather-saratov-5032/')
+    await update.message.reply_text(f'РїРѕСЃРјРѕС‚СЂРё РїРѕРіРѕРґСѓ С‚СѓС‚ https://www.gismeteo.ru/weather-saratov-5032/')
 
 
 async def math(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await log_com(update, context)  # вызываем функц log и туда запис два объекта
+    await log_com(update, context)  # РІС‹Р·С‹РІР°РµРј С„СѓРЅРєС† log Рё С‚СѓРґР° Р·Р°РїРёСЃ РґРІР° РѕР±СЉРµРєС‚Р°
     await update.message.reply_text(f"I can calculate for you:"
                                     f"\nprint /calc N+M*K/T")
 
 
 # calculator EVAL
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await log_com(update, context)  # вызываем функц log и туда запис два объекта
+    await log_com(update, context)  # РІС‹Р·С‹РІР°РµРј С„СѓРЅРєС† log Рё С‚СѓРґР° Р·Р°РїРёСЃ РґРІР° РѕР±СЉРµРєС‚Р°
     msg = update.message.text
     print(msg)
-    num = eval(msg.split("/calc")[-1])  # вводим через проблем, убираем вводное значение
-    await update.message.reply_text(f'вот, что получилось: {msg} = {num}')
+    num = eval(msg.split("/calc")[-1])  # РІРІРѕРґРёРј С‡РµСЂРµР· РїСЂРѕР±Р»РµРј, СѓР±РёСЂР°РµРј РІРІРѕРґРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
+    await update.message.reply_text(f'РІРѕС‚, С‡С‚Рѕ РїРѕР»СѓС‡РёР»РѕСЃСЊ: {msg} = {num}')
 
-## end
+# **end**
