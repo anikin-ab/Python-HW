@@ -1,7 +1,5 @@
-# from telegram import Update
-# from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-# import datetime
 from loging import *
+
 
 
 async def hello_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -22,81 +20,14 @@ async def weth(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def math(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await log_com(update, context)  # вызываем функц log и туда запис два объекта
-    await update.message.reply_text(f"I can calculate for you:\n/sum \n/sum2 \n/sub \n/mult \n/div")
+    await update.message.reply_text(f"I can calculate for you:"
+                                    f"\nprint /calc N+M*K/T")
 
 
-
-# async def echo(update):
-#     """Echo the user message."""
-#     update.message.reply_text(sum_com(update.message.text))
-
-async def echo(update):
-    """Echo the user message."""
-    update.message.reply_text(update(update.message.text))
-
-# summarising EVAL
-async def sum_com(numb):
-    print("numb")
-
-    num = numb
-    sum = eval(num) #/sum x y
-    await numb.message.reply_text(f'вот, я сложил: {sum}')
-
-
-# summarising EVAL
-# async def sum_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     await log_com(update, context)# вызываем функц log и туда запис два объекта
-#     msg = update.message.text
-#     print(msg)
-#     num = eval(msg.split("/sum")[-1]) #/sum x y
-#     # x = float(num[1])
-#     # y = float(num[2])
-#     # z = x + y
-#     await update.message.reply_text(f'вот, я сложил: {msg} = {num}')
-
-# summarising
-async def sum_com2(update: Update, context: ContextTypes.DEFAULT_TYPE):
+# calculator EVAL
+async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await log_com(update, context)# вызываем функц log и туда запис два объекта
     msg = update.message.text
     print(msg)
-    num = msg.split() #/sum x y
-    x = float(num[1])
-    y = float(num[2])
-    z = x + y
-    await update.message.reply_text(f'вот, я сложил: {x} + {y} = {z}')
-
-# substraction
-async def sub_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await log_com(update, context)# вызываем функц log и туда запис два объекта
-    msg = update.message.text
-    print(msg)
-    num = msg.split() #/sub x y
-    x = float(num[1])
-    y = float(num[2])
-    z = x - y
-    await update.message.reply_text(f'Вычитаем : {x} - {y} = {z}')
-
-# multiply
-async def mult_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await log_com(update, context)# вызываем функц log и туда запис два объекта
-    msg = update.message.text
-    print(msg)
-    num = msg.split() #/mult x y
-    x = float(num[1])
-    y = float(num[2])
-    z = x * y
-    await update.message.reply_text(f'Умножаем : {x} x {y} = {z}')
-
-# division
-async def div_com(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await log_com(update, context)# вызываем функц log и туда запис два объекта
-    msg = update.message.text
-    print(msg)
-    num = msg.split() #/div x y
-    x = float(num[1])
-    y = float(num[2])
-    z = x / y
-    await update.message.reply_text(f'Делим : {x} / {y} = {z}')
-
-# async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
+    num = eval(msg.split("/calc")[-1]) # вводим через проблем, убираем вводное значение
+    await update.message.reply_text(f'вот, что получилось: {msg} = {num}')

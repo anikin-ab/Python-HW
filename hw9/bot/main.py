@@ -3,15 +3,9 @@
 # Создать калькулятор для работы с рациональными и
 # комплексными числами, организовать меню, добавив в неё систему логирования
 
-import logging
 from telegram import Update
-from telegram.ext import filters, MessageHandler, ApplicationBuilder, ContextTypes, CommandHandler
+from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 import controller
-
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -20,6 +14,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 #  считываем токен из файла
 token = ""
 
+#  CREATE file "token.txt" and write down there your TOKEN
 
 def get_token():
     global token
@@ -38,5 +33,4 @@ if __name__ == '__main__':
     application.add_handler(start_handler)
 
     application.run_polling()  # starts bot
-    # application.idle()
     print("end")
