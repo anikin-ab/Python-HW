@@ -56,14 +56,14 @@ def dir_export2(direx):
 # автосохранение созданного списка
 
 def dir_export3(idx, name, s_name_gen, age, job, spec, tel):
-    with open("autosave.csv", "a") as file:
+    with open("../hw8/autosave.csv", "a") as file:
         file.write("{};{};{};{};{};{};{}\n".format(idx, name, s_name_gen, age, job, spec, tel))
 
 
 # функция поиска по справочнику
 def search(finder):
     print(f"\nSearching in CREATED file: {f_name} ")
-    print("search by: № Имя Фамилия Возраст Место-работы Должность Телефон all")
+    print("search by: № Имя Фамилия Возраст Место-работы Должность Телефон\n print 'all' to show all info")
     s_per = input("\ninput parameter for search: ")
     for i in finder:
         for j in i:
@@ -96,12 +96,12 @@ def search2(finder1):
 def adding(adder):
     adder1 = adder # новый список
     while True:
-        print("\nДобавь: № Имя Фамилия Возраст Место-работы Должность Телефон all (через пробел)")
+        print("\nДобавь: № Имя Фамилия Возраст Место-работы Должность Телефон (через пробел)")
         new_data = [list(map(str, input().split()))]
         adder1 = adder1 + new_data
         for i in adder1:
             print(i)
-        if input("stop? y/n: ") == "y":
+        if input("stop? print y/n (yes/no): ") == "y":
             data_prov.contact_list = adder1 #записываем в созданный файл новую инфу
             # dir_export2(adder1) # можно сразу экспортировать
             break
@@ -113,12 +113,12 @@ def adding1(adder):
     adder1 = adder # новый список
     global import_file
     while True:
-        print("\nДобавь: № Имя Фамилия Возраст Место-работы Должность Телефон all (через пробел)")
+        print("\nДобавь: № Имя Фамилия Возраст Место-работы Должность Телефон (через пробел)")
         new_data = [list(map(str, input().split()))]
         adder1 = adder1 + new_data
         for i in adder1:
             print(i)
-        if input("stop? y/n: ") == "y":
+        if input("stop? print y/n (yes/no): ") == "y":
             import_file = adder1 #записываем в созданный файл новую инфу
             # dir_export2(adder1) # можно сразу экспортировать
             break
@@ -128,7 +128,7 @@ def adding1(adder):
 # модуль удаления инфы созд списка
 def deleter(deller):
     print(f"\n WARNING: Info will be deleted")
-    print("search by: № Имя Фамилия Возраст Место-работы Должность Телефон all")
+    print("search by: № Имя Фамилия Возраст Место-работы Должность Телефон Все")
     dell = deller  # новый список
     global import_file
     while True:
@@ -138,12 +138,12 @@ def deleter(deller):
                 if j == s_per:
                     dell.pop(dell.index(i))
                     break
-        if s_per == "all":
+        if s_per == "Все":
             dell.clear()
             print(dell)
         for l in dell:
             print(l)
-        if input("stop? y/n: ") == "y":
+        if input("stop? print y/n (yes/no): ") == "y":
             data_prov.contact_list = dell #записываем в созданный файл новую инфу
             # dir_export2(adder1) # можно сразу экспортировать
             break
@@ -154,7 +154,7 @@ def deleter(deller):
 # удаляем в импортированной базе
 def deleter2(deller):
     print(f"\n WARNING: Info will be deleted")
-    print("search by: № Имя Фамилия Возраст Место-работы Должность Телефон all")
+    print("search by: № Имя Фамилия Возраст Место-работы Должность Телефон Все")
     dell = deller  # новый список
     global import_file
     while True:
@@ -164,12 +164,12 @@ def deleter2(deller):
                 if j == s_per:
                     dell.pop(dell.index(i))
                     break
-        if s_per == "all":
+        if s_per == "Все":
             dell.clear()
             print(dell)
         for l in dell:
             print(l)
-        if input("stop? y/n: ") == "y":
+        if input("stop? print y/n (yes/no): ") == "y":
             import_file = dell #записываем в созданный файл новую инфу
             # dir_export2(adder1) # можно сразу экспортировать
             break

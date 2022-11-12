@@ -81,7 +81,7 @@ def view():
 
 
         elif inp == "q": #при вводе q завершаем прогр
-            if input("save directory? y/n: ") == "y": # если надо сохраняем
+            if input("save directory? print y/n (yes/no): ") == "y": # если надо сохраняем
                 print("print 'new' to import created file \n"
                       "print 'imp' to import imported file")
                 wfi = input()  # какой файл импортировать?
