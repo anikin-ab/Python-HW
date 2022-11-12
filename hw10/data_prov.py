@@ -7,7 +7,7 @@
 import random
 from oper_file import *
 import oper_file
-
+import controller
 
 #формируем нумерацию
 def id(x):
