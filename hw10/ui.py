@@ -14,13 +14,15 @@ import controller
 # start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await log_com(update, context)  # вызываем функц log и туда запис два объекта
-    await update.message.reply_text(f"print commands:\n/cd (create_directory)"
+    await update.message.reply_text(f"print commands: \n/HELP\n"
+                                    f"\n/cd (create_directory)"
                                     f" \n/id (import_directory)"
                                     f" \n/ed (export_directory)"
-                                    f" \n/fp (find_person)"
+                                    f" \n/fp (find_person)")
                                     # f" \n/chd (change_directory)"
-                                    f" \n/help")
+
 # help
+
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await log_com(update, context)  # вызываем функц log и туда запис два объекта
     await update.message.reply_text(f"Вводи команды, слова через пробелы:\n/cd 'size' (например: /cd 5)\n Больше 10 не советую"
